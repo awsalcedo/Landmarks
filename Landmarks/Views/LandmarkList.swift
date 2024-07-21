@@ -27,7 +27,7 @@ struct LandmarkList: View {
     /*
      Debido a que utiliza propiedades de estado para contener información específica de una vista y sus subvistas, siempre crea el estado como privado.
      */
-    @State private var showFavoritesOnly = true
+    @State private var showFavoritesOnly = false
     
     /*
      Calcule una versión filtrada de la lista de puntos de referencia comprobando la propiedad showFavoritesOnly y cada valor de Landmark.isFavorite.
@@ -41,15 +41,24 @@ struct LandmarkList: View {
     
     var body: some View {
         NavigationSplitView {
-            List(filteredLandmarks) { landmark in
-                NavigationLink {
-                    LandmarkDetail(landmark: landmark)
-                } label: {
-                    LandmarkRow(landmark: landmark)
+            List {
+                Toggle(isOn: $showFavoritesOnly) {
+                    Text("Favorites only")
+                }
+                
+                ForEach(filteredLandmarks) { landmark in
+                    NavigationLink {
+                        LandmarkDetail(landmark: landmark)
+                    } label: {
+                        LandmarkRow(landmark: landmark)
+                    }
+                    
                 }
                 
             }
+            .animation(.default, value: filteredLandmarks)
             .navigationTitle("Landmarks")
+            
         } detail: {
             Text("Select a Landmark")
         }
