@@ -24,9 +24,24 @@ import SwiftUI
  */
 
 struct LandmarkList: View {
+    /*
+     Debido a que utiliza propiedades de estado para contener información específica de una vista y sus subvistas, siempre crea el estado como privado.
+     */
+    @State private var showFavoritesOnly = true
+    
+    /*
+     Calcule una versión filtrada de la lista de puntos de referencia comprobando la propiedad showFavoritesOnly y cada valor de Landmark.isFavorite.
+     */
+    
+    var filteredLandmarks: [Landmark] {
+        landmarks.filter { landmark in
+            (!showFavoritesOnly || landmark.isFavorite)
+        }
+    }
+    
     var body: some View {
         NavigationSplitView {
-            List(landmarks) { landmark in
+            List(filteredLandmarks) { landmark in
                 NavigationLink {
                     LandmarkDetail(landmark: landmark)
                 } label: {
