@@ -15,4 +15,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(ModelData()) //Actualice la vista previa de ContentView para agregar el objeto modelo al entorno, lo que hace que el objeto esté disponible para cualquier subvista.
 }

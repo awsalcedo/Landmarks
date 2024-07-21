@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct LandmarksApp: App {
+    /*
+     Actualice LandmarksApp para crear una instancia de modelo y proporciónela a ContentView usando el modificador de entorno (_:).
+
+     Utilice el atributo @State para inicializar un objeto modelo de la misma manera que lo utiliza para inicializar propiedades dentro de una vista. Al igual que SwiftUI inicializa el estado en una vista solo una vez durante la vida útil de la vista, inicializa el estado en una aplicación solo una vez durante la vida útil de la aplicación.
+     */
+    
+    @State private var modelData = ModelData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(modelData)
         }
     }
 }

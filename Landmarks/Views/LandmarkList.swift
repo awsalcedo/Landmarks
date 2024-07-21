@@ -24,6 +24,8 @@ import SwiftUI
  */
 
 struct LandmarkList: View {
+    @Environment(ModelData.self) var modelData
+    
     /*
      Debido a que utiliza propiedades de estado para contener información específica de una vista y sus subvistas, siempre crea el estado como privado.
      */
@@ -34,7 +36,7 @@ struct LandmarkList: View {
      */
     
     var filteredLandmarks: [Landmark] {
-        landmarks.filter { landmark in
+        modelData.landmarks.filter { landmark in
             (!showFavoritesOnly || landmark.isFavorite)
         }
     }
