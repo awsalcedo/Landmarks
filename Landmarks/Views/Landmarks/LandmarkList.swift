@@ -24,6 +24,11 @@ import SwiftUI
  */
 
 struct LandmarkList: View {
+    /* 
+     @Environment es una propiedad que se usa para leer valores del entorno en una vista. Es una forma de acceder a los valores que se han pasado a través de .environment().
+     
+     Recibimos el valor `ModelData` en la vista hija LandmarkList
+     */
     @Environment(ModelData.self) var modelData
     
     /*

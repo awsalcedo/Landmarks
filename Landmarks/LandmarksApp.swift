@@ -20,6 +20,9 @@ struct LandmarksApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            /*
+             Es un modificador de vista que permite pasar valores a través de la jerarquía de vistas sin tener que inyectar explícitamente datos en cada vista hija. Es útil para compartir datos globales como temas, configuraciones de usuario o datos que necesitan ser accesibles por muchas vistas.
+             */
                 .environment(modelData)
         }
     }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    /*
+     @Environment este atributo se utiliza en vistas que están más abajo en la jerarquía de vistas para recibir datos de vistas que están más arriba, en este caso de la LandmarkList
+     */
     @Environment(ModelData.self) var modelData
     var landmark: Landmark
     
@@ -24,6 +27,10 @@ struct LandmarkDetail: View {
          Dentro de la propiedad del cuerpo, agregue los datos del modelo usando un contenedor Bindable. Incruste el nombre del punto de referencia en un HStack con un nuevo botón favorito; proporcione un enlace a la propiedad isFavorite con el signo de dólar ($).
 
          Utilice LandmarkIndex con el objeto modelData para asegurarse de que el botón actualice la propiedad isFavorite del punto de referencia almacenado en su objeto modelo.
+         */
+        
+        /*
+         @Bindable es un nuevo atributo introducido en Swift que facilita la conexión entre los datos y las vistas, simplificando el uso de datos observables dentro de las clases. Es particularmente útil cuando estás trabajando con clases y quieres exponer propiedades que pueden ser observadas por las vistas de SwiftUI.
          */
         @Bindable var modelData = modelData
         

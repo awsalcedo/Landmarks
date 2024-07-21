@@ -10,6 +10,10 @@ import SwiftUI
 struct FavoriteButton: View {
     /*
      Agregue un enlace isSet que indique el estado actual del botón y proporcione un valor constante para la vista previa.
+     
+     Un Binding controla el almacenamiento de un valor, por lo que puede pasar datos a diferentes vistas que necesitan leerlos o escribirlos.
+     
+     @Binding es una propiedad que se utiliza para crear una referencia bidireccional a un valor en una vista superior. Esto significa que cuando el valor cambia en la vista superior, también cambia en la vista que tiene el @Binding, y viceversa.
      */
     @Binding var isSet: Bool
     
