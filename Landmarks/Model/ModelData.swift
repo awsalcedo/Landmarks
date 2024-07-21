@@ -7,7 +7,18 @@
 
 import Foundation
 
-var landmarks: [Landmark] = load("landmarkData.json")
+/*
+ Declare un nuevo tipo de modelo usando la macro Observable().
+
+ SwiftUI actualiza una vista solo cuando cambia una propiedad observable y el cuerpo de la vista lee la propiedad directamente.
+ */
+
+@Observable
+class ModelData {
+    var landmarks: [Landmark] = load("landmarkData.json")
+    
+}
+
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
