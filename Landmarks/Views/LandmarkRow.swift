@@ -21,7 +21,7 @@ struct LandmarkRow: View {
             
             if landmark.isFavorite {
                 Image(systemName: "star.fill")
-                    .foregroundStyle(.yellow)
+                    .foregroundStyle(.yellow) //Debido a que las imágenes del sistema están basadas en vectores, puede cambiar su color con el modificador foregroundStyle(_:).
             }
         }
     }
